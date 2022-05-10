@@ -11,48 +11,59 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Roboto:wght@500;900&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <header class="header">
-        <div class="container h-100">
-            <div class="row h-100">
-                <div class="col-md-1 g-md-0 d-flex align-content-center header__logo">
-                    <img src="img/logo.svg" alt="logo" class="d-block img-fluid" >
-                </div>
-                <div class="header__adress col-lg-2 col-md-3 text-center my-auto">
-                    <img src="icons/location.svg" alt="" class="">
-                    Ростов-на-Дону <br>
-                    <span class="text-secondary d-xs-none">ул. Ленина, 2Б</span>
-                </div>
-                <div class="header__phone col-lg-3 offset-xl-4 offset-lg-3 col-md-4 offset-md-0 my-auto text-end">
-                    <img src="icons/whatsapp 1.svg" alt="whatsapp logo" class="">
-                    <span>+7(863) 000 00 00</span>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4 g-0 my-auto d-flex justify-content-end ">
-                    <button class="btn button">Записаться на прием</button>
+    <header>
+        <div class="header">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="header__logo col-4 offset-2 col-md-1 offset-md-0 col-lg-1 g-md-0 d-flex justify-content-center order-1 order-md-0">
+                        <img src="img/logo.svg" alt="logo" class="d-block" >
+                    </div>
+                    <div class="header__adress col-6 offset-6 col-md-3 offset-md-0 col-lg-2 text-md-center my-sm-auto order-3 order-md-0 text-end">
+                        <img src="icons/location.svg" alt="" class="d-none d-md-inline">
+                        Ростов-на-Дону <br>
+                        <span class="text-secondary d-none d-md-inline">ул. Ленина, 2Б</span>
+                    </div>
+                    <div class="header__phone col-6 col-md-4 col-lg-3 offset-lg-3 offset-xl-4 my-md-auto order-2 order-md-0 d-md-flex justify-content-end">
+                        <img src="icons/whatsapp 1.svg" alt="whatsapp logo" class="d-none d-md-inline">
+                        <span class="d-block text-end d-md-inline">+7(863) 000 00 00</span>
+                    </div>
+                    <div class="col-md-4 col-lg-3 col-xl-2 g-md-0 my-auto justify-content-end d-none d-md-flex">
+                        <button class="btn button openModal">Записаться на прием</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
-    <nav class="menu">
         <div class="container">
-            <div class="row">
-                <ul class="navbar-nav col-lg-5 g-0 col-md-7 d-flex flex-row justify-content-between">
-                    <li class="nav-item"><a href="#" class="nav-link">О клинике</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Услуги</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Специалисты</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Цены</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Контакты</a></li>
-                </ul>
+            <div class="hamburger d-md-none">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-    </nav>
-    <main class="overflow-hidden">
+        <nav class="menu">
+            <div class="container">
+                <div class="row">
+                    <ul class="nav col-md-12 col-lg-7 g-md-0 d-flex flex-md-row flex-column justify-content-between mb-0">
+                        <li class="nav-item"><a href="#" class="nav-link">О клинике</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Услуги</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Специалисты</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Цены</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Контакты</a></li>
+                    </ul>
+                </div>
+                <button class="d-block d-sm-none btn button openModal">Записаться на прием</button>
+            </div>
+        </nav>
+    </header>
+    <main class="main overflow-hidden">
+        <img src="img/main.jpg" alt="main" class="d-md-none w-100">
         <div class="container">
             <div class="row">
                 <div class="col-xl-4 col-md-6 my-auto">
                     <h2 class="title"> Многопрофильная клиника для детей и взрослых </h2>
                     <p class="paragraph"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
                 </div>
-                <div class="col-xl-6 offset-xl-2 col-md-4 offset-md-0">
+                <div class="main__bg col-xl-6 offset-xl-2 col-md-4 offset-md-0 d-none d-md-block">
                     <img src="img/main.jpg" alt="main">
                 </div>
             </div>
@@ -74,7 +85,7 @@
                     <button class="btn button">Записаться</button>
                     <button class="btn button button__outline">Подробнее</button>
                 </div>
-                <img src="img/carousel/Frame1.png" alt="" class="carousel__bg">
+                <img src="img/carousel/Frame1.png" alt="" class="carousel__bg d-none d-md-block">
             </div>
             
             <div class="carousel__nav d-flex justify-content-center">
@@ -84,20 +95,20 @@
             </div>
         </div>
     </section>
-    <footer>
+    <footer class="footer">
         <div class="container h-100">
             <div class="row h-100">
-                <div class="col-md-1 g-0 d-flex align-content-center">
-                    <img src="img/logo_footer.svg" alt="logo" class="d-block img-fluid" >
+                <div class="col-6 col-md-1 g-sm-0 d-flex">
+                    <img src="img/logo_footer.svg" alt="logo" class="d-block align-self-center footer__logo" >
                 </div>
-                <ul class="navbar-nav col-lg-6 offset-lg-2 col-md-8 offset-md-1 d-flex flex-row justify-content-around">
+                <ul class="navbar-nav col-lg-6 offset-lg-2 col-md-8 offset-md-1 d-md-flex flex-row justify-content-around d-none">
                     <li class="nav-item align-self-center"><a href="#" class="nav-link">О клинике</a></li>
                     <li class="nav-item align-self-center"><a href="#" class="nav-link">Услуги</a></li>
                     <li class="nav-item align-self-center"><a href="#" class="nav-link">Специалисты</a></li>
                     <li class="nav-item align-self-center"><a href="#" class="nav-link">Цены</a></li>
                     <li class="nav-item align-self-center"><a href="#" class="nav-link">Контакты</a></li>
                 </ul>
-                <div class="col-lg-2 offset-md-1 d-flex col-md-1 justify-content-end align-content-center">
+                <div class="col-6 offset-md-1 col-md-1 col-lg-2  d-flex justify-content-end">
                     <img src="icons/instagram.svg" alt="instagram" class="footer__icon">
                     <img src="icons/whatsapp.svg" alt="whatsapp" class="footer__icon">
                     <img src="icons/telegram.svg" alt="telegram" class="footer__icon">
@@ -105,5 +116,24 @@
             </div>
         </div>
     </footer>
+    <div class="popup">
+        
+        <div class="container d-flex justify-content-center align-items-center">
+            <div class="forms">
+                <div class="hamburger hamburger_active popup_btn">
+                    <span></span>
+                    <span></span>
+                </div>
+                <form>
+                    <input name="name" type="text" class="forms__item" placeholder="Ваше имя">
+                    <input name="surname" type="text" class="forms__item" placeholder="Ваша фамилия">
+                    <input name='phone' type="tel" class="forms__item tel" placeholder="Ваш номер телефона">
+                    <button type="submit" class="btn button button__form" id="sendBtn">Записаться на прием</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/js-inputmask.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

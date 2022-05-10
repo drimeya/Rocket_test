@@ -1,0 +1,109 @@
+@media (max-width: 1200px) {
+    .header {
+        &__phone {
+            span {
+                margin: 0 0 0 9px;
+            }
+        }
+    }
+    .carousel__bg {
+        transform: translateX(200px);
+    }
+}
+@media (max-width: 992px) {
+    .carousel__bg {
+        transform: translateX(400px);
+    }
+    .footer__icon {
+        width: 25px;
+        margin: 0 5px ;
+    }
+}
+@media (max-width: 768px) {
+    header {
+        position: fixed;
+        z-index: 100;
+    }
+    .header {
+        background: #F7F7F7;
+        height: 65px;
+        &__logo {
+            img {
+                height: 19px;
+                max-width: auto;
+                position: absolute;
+                top: 24px;
+            }
+        }
+        &__phone {
+            span {
+                margin: 14px 0 0 9px;
+                font-weight: 700;
+            }
+        }
+        &__adress {
+            font-size: 13px;
+            position: relative;
+            top: -3px;
+        }
+    }
+    .menu {
+        height: 100vh;
+        width: 100vw;
+        background: rgba(69, 146, 127, 0.9);
+        backdrop-filter: blur(4px);
+        transform: translateX(-100%);
+        transition: 0.3s all;
+        &_active {
+            transform: translateX(0);
+        }
+        ul {
+            margin-top: 48px;
+            li {
+                height: 34px;
+            }
+        }
+        button {
+            margin-top: 39px;
+            background: #F6F6F6;
+            color: #1FA181;
+        }
+    }
+    .main {
+        padding: 65px 0;
+        .title {
+            font-weight: 700;
+            font-size: 26px;
+            line-height: 34px;
+            margin-top: 35px;
+        }
+        .paragraph {
+            margin-top: 9px;
+        }
+    }
+    .carousel {
+        &__wrapper {
+            padding: 50px 20px;
+        }  
+    }
+    .footer {
+        height: 65px;
+        &__logo {
+            height: 19px;
+        }
+    }
+}
+@media (max-width: 576px) {
+    .carousel {
+        .btns__wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button {
+            width: 150px;
+            &__outline {
+                margin-left: 0;
+            }
+        }
+    }
+}

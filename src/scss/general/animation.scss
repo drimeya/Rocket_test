@@ -1,0 +1,15 @@
+.fadeOut {
+    animation: fade 0.4s;
+}
+.fadeIn {
+    animation: fade reverse 0.4s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
