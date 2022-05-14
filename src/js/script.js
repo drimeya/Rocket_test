@@ -53,10 +53,10 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 
     //отправка формы
-    const ajaxSend = async (formData) => {
+    const ajaxSend = async (data) => {
         const fetchResp = await fetch('mailer/smart.php', {
             method: 'POST',
-            body: formData
+            body: data
         });
         if (!fetchResp.ok) {
             throw new Error(`Ошибка по адресу, статус ошибки ${fetchResp.status}`);
@@ -79,5 +79,29 @@ window.addEventListener('DOMContentLoaded', function() {
                 .catch((err) => console.error(err));
         });
     });
+
+    //слайдер
+    const left = document.querySelector('#left'),
+        right = document.querySelector('#right');
+
+    console.log('11');
+
+    const sendData = function(event) {
+        console.log('hi');
+        event.preventDefault();
+        if (event.target === left) {
+            const data = -1;
+            ajaxSend(data).catch((err) => console.error(err));
+        } else if (event.target === right) {
+            const data = +1;
+            console.log('2');
+            ajaxSend(data).catch((err) => console.error(err));
+        }
+    };
+
+        left.addEventListener('click', sendData, false);
+        right.addEventListener('click', sendData, false);
+
+    
 });
 

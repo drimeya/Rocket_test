@@ -1,4 +1,5 @@
 body {
+    // height: 100%;
     font-family: 'PT Sans Caption', sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -125,6 +126,10 @@ body {
     }
     &__nav {
         margin-top: 39px;
+        .arrow {
+            border: none;
+            background: none;
+        }
     }
     &__slide_num {
         font-size: 18px;
@@ -134,9 +139,6 @@ body {
         span {
             color: #000;
         }
-    }
-    &__arrow {
-        cursor: pointer;
     }
 }
 .hamburger {
