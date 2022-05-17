@@ -71,44 +71,13 @@
     </main>
     <section class="carousel">
         <div class="container">
-            <div class="carousel__wrapper  overflow-hidden">
-                <?php 
-                    $connection = mysqli_connect('localhost', 'root', 'root', 'test_db');
-                    if ($connection == false) {
-                        echo 'произошла ошибка';
-                        echo mysqli_connect_error();
-                        exit;
-                    }
-                    
-                    $id = 1;
-                    $list = mysqli_query($connection, "SELECT * FROM `list` WHERE `slides_id`=$id");
-                    $result = mysqli_query($connection, "SELECT * FROM `slides` WHERE `id`=$id");
-                    $slide = [];
-                    while ( $item = mysqli_fetch_assoc($result) ) {
-                        $slide = $slide + $item;
-                    }
-                ?>
-                    <div class='title'><?php echo $slide['title'] ?></div>
-                    <div class='subtitle'><?php echo $slide['subtitle'] ?></div>
-                    <ul class='list-unstyled'>
-                        <?php 
-                            while ( $listItem = mysqli_fetch_assoc($list) ) {
-                                echo '<li>' . $listItem['list item'] . '</li>';
-                            }
-                        ?>
-                    </ul>
-                    <div class='price'>Всего <?php echo $slide['price'] ?> <span><?php echo $slide['oldPrice'] ?><span></div>
-                    <div class='btns__wrapper'>
-                        <button class='btn button openModal'>Записаться</button>
-                        <button class='btn button button__outline'>Подробнее</button>
-                    </div>
-                    <img src='img/carousel/Frame1.png' alt='' class='carousel__bg d-none d-md-block'>
-            </div>
-            
+            <?php include 'php/carousel.php' ?>
+        </div>
+        <div class="container">
             <div class="carousel__nav d-flex justify-content-center">
-                <button class='arrow' id='left'><img src="icons/arrow-l.svg" alt=""></button>
-                <div class="carousel__slide_num align-self-center"><span id="index">1</span>/4</div>
-                <button class='arrow' id='right'><img src="icons/arrow-r.svg" alt="" ></button>
+                <img src="icons/arrow-l.svg" alt="left"  id='left' name="left">
+                <div class="carousel__slide_num align-self-center"><span> 1</span>/4</div>
+                <img src="icons/arrow-r.svg" alt="tight" id='right'>
             </div>
         </div>
     </section>
@@ -140,7 +109,7 @@
                     <span></span>
                     <span></span>
                 </div>
-                <form>
+                <form class="popup_form">
                     <input name="name" type="text" class="forms__item" placeholder="Ваше имя" required>
                     <input name="surname" type="text" class="forms__item" placeholder="Ваша фамилия" required>
                     <input name='phone' type="tel" class="forms__item tel" placeholder="Ваш номер телефона" required>

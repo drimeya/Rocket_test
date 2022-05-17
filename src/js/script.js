@@ -12,7 +12,6 @@ window.addEventListener('DOMContentLoaded', function() {
     hamburger.addEventListener('click', () => {
         menuToggle();
     });
-
     //всплывающее окно
     const popupClose = document.querySelector('.popup_btn'),
         popup = document.querySelector('.popup'),
@@ -53,8 +52,8 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 
     //отправка формы
-    const ajaxSend = async (data) => {
-        const fetchResp = await fetch('mailer/smart.php', {
+    const ajaxSend = async (url ,data) => {
+        const fetchResp = await fetch(url, {
             method: 'POST',
             body: data
         });
@@ -64,44 +63,56 @@ window.addEventListener('DOMContentLoaded', function() {
         return await fetchResp.text();
     };
 
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const formData = new FormData(this);
+    const form = document.querySelector('.popup_form');
 
-            ajaxSend(formData)
-                .then((response) => {
-                    console.log(response);
-                    form.reset(); // очищаем поля формы
-                    closeModal(popup, 'fadeOut', 'popup_active');
-                })
-                .catch((err) => console.error(err));
-        });
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+
+        ajaxSend('mailer/smart.php', formData)
+            .then(() => {
+                form.reset();
+                closeModal(popup, 'fadeOut', 'popup_active');
+            })
+            .catch((err) => console.error(err));
     });
 
-    //слайдер
+    //переключение слайдов
     const left = document.querySelector('#left'),
+        carousel = document.querySelector('.carousel'),
+        wrapper = carousel.querySelector('.container'),
+        index = document.querySelector('.carousel__slide_num span'),
         right = document.querySelector('#right');
+    let id = 1;
 
-    console.log('11');
-
-    const sendData = function(event) {
-        console.log('hi');
-        event.preventDefault();
-        if (event.target === left) {
-            const data = -1;
-            ajaxSend(data).catch((err) => console.error(err));
-        } else if (event.target === right) {
-            const data = +1;
-            console.log('2');
-            ajaxSend(data).catch((err) => console.error(err));
-        }
-    };
-
-        left.addEventListener('click', sendData, false);
-        right.addEventListener('click', sendData, false);
-
-    
+    function changeSlide(arrow) {
+        arrow.addEventListener('click', () => {
+            if (arrow === left) {
+                id = id - 1; 
+                if (id === 0 ) {
+                    id = 4;
+                }
+            } else if (arrow === right) {
+                id = id + 1; 
+                if (id === 5 ) {
+                    id = 1;
+                }
+            }
+            const formData = new FormData();
+            formData.append('id', id);
+            document.querySelector('.carousel__text-content').classList.add('fadeOut');
+            ajaxSend('php/carousel.php', formData)
+            .then((res)=>{
+                setTimeout(()=>{
+                    wrapper.innerHTML = res;
+                    document.querySelector('.carousel__text-content').classList.add('fadeIn');
+                }, 300);
+                index.textContent = id;
+            })
+            .catch((err) => console.error(err));
+        });
+    }
+    changeSlide(left);
+    changeSlide(right);
 });
 

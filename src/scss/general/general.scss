@@ -126,9 +126,8 @@ body {
     }
     &__nav {
         margin-top: 39px;
-        .arrow {
-            border: none;
-            background: none;
+        img {
+            cursor: pointer;
         }
     }
     &__slide_num {
