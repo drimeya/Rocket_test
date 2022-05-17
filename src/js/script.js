@@ -79,8 +79,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     //переключение слайдов
     const left = document.querySelector('#left'),
-        carousel = document.querySelector('.carousel'),
-        wrapper = carousel.querySelector('.container'),
+        carouselWrapper = document.querySelector('.carousel .container'),
         index = document.querySelector('.carousel__slide_num span'),
         right = document.querySelector('#right');
     let id = 1;
@@ -104,7 +103,7 @@ window.addEventListener('DOMContentLoaded', function() {
             ajaxSend('php/carousel.php', formData)
             .then((res)=>{
                 setTimeout(()=>{
-                    wrapper.innerHTML = res;
+                    carouselWrapper.innerHTML = res;
                     document.querySelector('.carousel__text-content').classList.add('fadeIn');
                 }, 300);
                 index.textContent = id;
