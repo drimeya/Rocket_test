@@ -17,6 +17,7 @@
         while ( $item = mysqli_fetch_assoc($result) ) {
             $slide = $slide + $item;
         }
+        mysqli_close($connection);
     ?>
         <div class="carousel__text-content">
             <div class='title'><?php echo $slide['title'] ?></div>
